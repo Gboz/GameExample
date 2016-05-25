@@ -9,13 +9,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.github.gboz.GameExample;
 
-public abstract class AbstractScreem implements Screen {
+public abstract class AbstractScreen implements Screen {
 	protected GameExample game;
 	protected Stage stage;
 	private OrthographicCamera camera;
 	protected SpriteBatch spriteBatch;
 
-	public AbstractScreem(GameExample game) {
+	public AbstractScreen(GameExample game) {
 		this.game = game;
 		createCamera();
 		stage = new Stage(new StretchViewport(GameExample.WIDTH, GameExample.HEIGHT, camera));

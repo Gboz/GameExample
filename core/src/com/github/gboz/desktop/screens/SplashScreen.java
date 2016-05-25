@@ -3,7 +3,7 @@ package com.github.gboz.desktop.screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.github.gboz.GameExample;
 
-public class SplashScreen extends AbstractScreem {
+public class SplashScreen extends AbstractScreen {
 
 	private Texture splashImg;
 
