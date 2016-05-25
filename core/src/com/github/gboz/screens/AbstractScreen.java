@@ -1,4 +1,4 @@
-package com.github.gboz.desktop.screens;
+package com.github.gboz.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;

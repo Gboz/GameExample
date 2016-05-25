@@ -1,4 +1,4 @@
-package com.github.gboz.desktop.screens;
+package com.github.gboz.screens;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Timer;
