@@ -22,7 +22,7 @@ public class SplashScreen extends AbstractScreen {
 		}, 3);
 	}
 
-	private void init() {
+	protected void init() {
 		//TODO implement better assets loading when game grows
 		splashImg = new Texture("ct.jpg");
 	}

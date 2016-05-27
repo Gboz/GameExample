@@ -6,13 +6,14 @@ import com.github.gboz.entities.Player;
 public class GameplayScreen extends AbstractScreen {
 
 	private Player player;
-	
+
 	public GameplayScreen(GameExample game) {
 		super(game);
 		init();
 	}
 
-	private void init() {
+	@Override
+	protected void init() {
 		initPlayer();
 	}
 
@@ -20,12 +21,12 @@ public class GameplayScreen extends AbstractScreen {
 		player = new Player();
 		stage.addActor(player);
 	}
-	
+
 	@Override
 	public void render(float delta) {
 		super.render(delta);
 		update();
-		
+
 		spriteBatch.begin();
 		stage.draw();
 		spriteBatch.end();
