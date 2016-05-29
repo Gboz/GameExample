@@ -28,13 +28,15 @@ public class Player extends Image {
 		int xMoveAmmount = MathUtils.random(-130, 130);
 		int yMoveAmmount = 10;
 		float moveActionTime = 0.30f;
-		Action moveAction = Actions.sequence(Actions.moveBy(xMoveAmmount, yMoveAmmount, moveActionTime, Interpolation.circleOut),
+		Action moveAction = Actions.sequence(
+				Actions.moveBy(xMoveAmmount, yMoveAmmount, moveActionTime, Interpolation.circleOut),
 				Actions.moveBy(-xMoveAmmount, -yMoveAmmount, moveActionTime, Interpolation.circle));
 
 		int xGrowAmmount = MathUtils.random(-30, 100);
 		int yGrowAmmount = 10;
 		float growActionTime = 0.2f;
-		Action growAction = Actions.sequence(Actions.sizeBy(xGrowAmmount, yGrowAmmount, growActionTime, Interpolation.circleOut),
+		Action growAction = Actions.sequence(
+				Actions.sizeBy(xGrowAmmount, yGrowAmmount, growActionTime, Interpolation.circleOut),
 				Actions.sizeBy(-xGrowAmmount, -yGrowAmmount, growActionTime, Interpolation.circle)
 
 		);

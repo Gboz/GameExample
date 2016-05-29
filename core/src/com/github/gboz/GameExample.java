@@ -16,11 +16,20 @@ public class GameExample extends Game {
 
 	private boolean paused;
 
+	private int points;
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void addPoint() {
+		points++;
+	}
+
 	@Override
 	public void create() {
 		this.setScreen(new SplashScreen(this));
 	}
-
 
 	/**
 	 * 
