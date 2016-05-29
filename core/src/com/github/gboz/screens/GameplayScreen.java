@@ -13,7 +13,7 @@ import com.github.gboz.entities.Player;
 public class GameplayScreen extends AbstractScreen {
 
 	private Player player;
-	private Button playerButton;
+	private Button playerButton, resetScoreButton;
 	private Label scoreLabel;
 
 	public GameplayScreen(GameExample game) {
@@ -25,7 +25,29 @@ public class GameplayScreen extends AbstractScreen {
 	protected void init() {
 		initPlayer();
 		initPlayerButton();
+		initResetScoreButton();
 		initScoreLabel();
+	}
+
+	private void initResetScoreButton() {
+		resetScoreButton = new Button(new ButtonStyle());
+		resetScoreButton.setWidth(100);
+		resetScoreButton.setHeight(100);
+		resetScoreButton.setX(330);
+		resetScoreButton.setY(560);
+		resetScoreButton.setDebug(true);
+
+		stage.addActor(resetScoreButton);
+		
+		resetScoreButton.addListener(new ClickListener(){
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				
+				game.resetGameScore();
+
+				return super.touchDown(event, x, y, pointer, button);
+			}
+		});
 	}
 
 	private void initScoreLabel() {
@@ -66,9 +88,9 @@ public class GameplayScreen extends AbstractScreen {
 	public void render(float delta) {
 		super.render(delta);
 		update();
-		
-//		for debug points
-//		System.out.println("Points " + game.getPoints());
+
+		// for debug points
+		// System.out.println("Points " + game.getPoints());
 
 		spriteBatch.begin();
 		stage.draw();
