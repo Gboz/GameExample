@@ -2,6 +2,7 @@ package com.github.gboz;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,6 +10,8 @@ import com.github.gboz.screens.SplashScreen;
 
 public class GameExample extends Game {
 
+	public final static String GAME_PREFS = "com.github.gboz.prefs";
+	public final static String GAME_SCORE = "com.github.gboz.prefs.score";
 	public final static String GAME_NAME = "Game Example";
 
 	public final static int WIDTH = 480;
@@ -18,23 +21,34 @@ public class GameExample extends Game {
 
 	private int points;
 
+	private Preferences prefs;
+
 	public int getPoints() {
 		return points;
 	}
 
 	public void addPoint() {
 		points++;
+		prefs.putInteger(GAME_SCORE, points);
+		prefs.flush();
 	}
 
 	@Override
 	public void create() {
+		init();
 		this.setScreen(new SplashScreen(this));
 	}
 
-	/**
-	 * 
-	 * getters and setters
-	 */
+	private void init() {
+		prefs = Gdx.app.getPreferences(GAME_PREFS);
+		loadScore();
+
+	}
+
+	private void loadScore() {
+		points = prefs.getInteger(GAME_SCORE);
+		
+	}
 
 	public boolean isPaused() {
 		return paused;
