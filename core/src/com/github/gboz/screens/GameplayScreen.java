@@ -2,8 +2,6 @@ package com.github.gboz.screens;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -11,12 +9,13 @@ import com.github.gboz.GameExample;
 import com.github.gboz.entities.Player;
 import com.github.gboz.ui.IClickCallback;
 import com.github.gboz.ui.PlayerButton;
+import com.github.gboz.ui.ResetScoreButton;
 
 public class GameplayScreen extends AbstractScreen {
 
 	private Player player;
 	private PlayerButton playerButton;
-	private Button resetScoreButton;
+	private ResetScoreButton resetScoreButton;
 	private Label scoreLabel;
 
 	public GameplayScreen(GameExample game) {
@@ -33,24 +32,17 @@ public class GameplayScreen extends AbstractScreen {
 	}
 
 	private void initResetScoreButton() {
-		resetScoreButton = new Button(new ButtonStyle());
-		resetScoreButton.setWidth(100);
-		resetScoreButton.setHeight(100);
-		resetScoreButton.setX(330);
-		resetScoreButton.setY(560);
-		resetScoreButton.setDebug(true);
+		resetScoreButton = new ResetScoreButton(new IClickCallback() {
 
-		stage.addActor(resetScoreButton);
-		
-		resetScoreButton.addListener(new ClickListener(){
 			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				
+			public void onClick() {
 				game.resetGameScore();
 
-				return super.touchDown(event, x, y, pointer, button);
 			}
 		});
+
+		stage.addActor(resetScoreButton);
+
 	}
 
 	private void initScoreLabel() {
@@ -64,11 +56,11 @@ public class GameplayScreen extends AbstractScreen {
 
 	private void initPlayerButton() {
 		playerButton = new PlayerButton(new IClickCallback() {
-			
+
 			@Override
 			public void onClick() {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
