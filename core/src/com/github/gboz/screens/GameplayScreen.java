@@ -1,5 +1,6 @@
 package com.github.gboz.screens;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.github.gboz.GameExample;
@@ -11,6 +12,7 @@ import com.github.gboz.ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
 
+	private Texture bgTexture;
 	private Player player;
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
@@ -23,6 +25,7 @@ public class GameplayScreen extends AbstractScreen {
 
 	@Override
 	protected void init() {
+		bgTexture = new Texture("bg.png");
 		initPlayer();
 		initPlayerButton();
 		initResetScoreButton();
@@ -83,6 +86,11 @@ public class GameplayScreen extends AbstractScreen {
 		// for debug points
 		// System.out.println("Points " + game.getPoints());
 
+		spriteBatch.begin();
+		spriteBatch.draw(bgTexture, 0, 0);
+		spriteBatch.end();
+	
+		
 		spriteBatch.begin();
 		stage.draw();
 		spriteBatch.end();
