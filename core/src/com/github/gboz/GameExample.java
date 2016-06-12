@@ -29,6 +29,11 @@ public class GameExample extends Game {
 		updateSavedScoreInPrefs();
 	}
 
+	public void addPoints(int pointsToAdd) {
+		points += pointsToAdd;
+		updateSavedScoreInPrefs();
+	}
+
 	private void updateSavedScoreInPrefs() {
 		prefs.putInteger(GAME_SCORE, points);
 		prefs.flush();
@@ -62,5 +67,11 @@ public class GameExample extends Game {
 	public void resetGameScore() {
 		points = 0;
 		updateSavedScoreInPrefs();
+	}
+
+	public void addPassiveIncome() {
+		// TODO implement
+		System.out.println("passive income debug");
+
 	}
 }

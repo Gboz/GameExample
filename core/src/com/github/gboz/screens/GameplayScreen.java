@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.github.gboz.GameExample;
 import com.github.gboz.entities.FlyingObject;
+import com.github.gboz.entities.FlyingObject.FlyingObjectType;
 import com.github.gboz.entities.Player;
 import com.github.gboz.ui.IClickCallback;
 import com.github.gboz.ui.PlayerButton;
@@ -36,7 +37,7 @@ public class GameplayScreen extends AbstractScreen {
 	}
 
 	private void initFlyingObjects() {
-		flyingObject1 = new FlyingObject();
+		flyingObject1 = new FlyingObject(FlyingObjectType.PASSIVE, game);
 		stage.addActor(flyingObject1);
 		flyingObject1.flyLikeHell();
 	}
