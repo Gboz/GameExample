@@ -12,9 +12,9 @@ public class SplashScreen extends AbstractScreen {
 	public SplashScreen(final GameExample game) {
 		super(game);
 		init();
-		
+
 		Timer.schedule(new Task() {
-			
+
 			@Override
 			public void run() {
 				game.setScreen(new GameplayScreen(game));
@@ -23,10 +23,10 @@ public class SplashScreen extends AbstractScreen {
 	}
 
 	protected void init() {
-		//TODO implement better assets loading when game grows
+		// TODO implement better assets loading when game grows
 		splashImg = new Texture("splash.png");
 	}
-	
+
 	@Override
 	public void render(float delta) {
 		super.render(delta);

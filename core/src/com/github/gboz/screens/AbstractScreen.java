@@ -39,10 +39,10 @@ public abstract class AbstractScreen implements Screen {
 		camera.update();
 		spriteBatch.setProjectionMatrix(camera.combined);
 	}
-	
+
 	@Override
 	public void show() {
-		
+
 	}
 
 	private void clearScreen() {
@@ -60,20 +60,20 @@ public abstract class AbstractScreen implements Screen {
 	public void pause() {
 		game.setPaused(true);
 	}
-	
+
 	@Override
 	public void hide() {
-		
+
 	}
-	
+
 	@Override
 	public void dispose() {
 		game.dispose();
-		
+
 	}
-	
+
 	@Override
 	public void resize(int width, int height) {
-		
+
 	}
 }

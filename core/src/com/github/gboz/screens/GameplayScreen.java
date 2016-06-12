@@ -2,8 +2,10 @@ package com.github.gboz.screens;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.github.gboz.GameExample;
+import com.github.gboz.entities.FlyingObject;
 import com.github.gboz.entities.Player;
 import com.github.gboz.ui.IClickCallback;
 import com.github.gboz.ui.PlayerButton;
@@ -12,29 +14,40 @@ import com.github.gboz.ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
 
-	private Texture bgTexture;
+	private Image bgImage;
 	private Player player;
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
 	private ScoreLabel scoreLabel;
+	private FlyingObject flyingObject1;
 
 	public GameplayScreen(GameExample game) {
 		super(game);
-		init();
 	}
 
 	@Override
 	protected void init() {
-		bgTexture = new Texture("bg.png");
+		initBG();
 		initPlayer();
 		initPlayerButton();
 		initResetScoreButton();
 		initScoreLabel();
+		initFlyingObjects();
+	}
+
+	private void initFlyingObjects() {
+		flyingObject1 = new FlyingObject();
+		stage.addActor(flyingObject1);
+		flyingObject1.flyLikeHell();
+	}
+
+	private void initBG() {
+		bgImage = new Image(new Texture("bg.png"));
+		stage.addActor(bgImage);
 	}
 
 	private void initResetScoreButton() {
 		resetScoreButton = new ResetScoreButton(new IClickCallback() {
-
 			@Override
 			public void onClick() {
 				game.resetGameScore();
@@ -83,14 +96,6 @@ public class GameplayScreen extends AbstractScreen {
 		super.render(delta);
 		update();
 
-		// for debug points
-		// System.out.println("Points " + game.getPoints());
-
-		spriteBatch.begin();
-		spriteBatch.draw(bgTexture, 0, 0);
-		spriteBatch.end();
-	
-		
 		spriteBatch.begin();
 		stage.draw();
 		spriteBatch.end();
